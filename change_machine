@@ -1,0 +1,42 @@
+from math import *
+
+
+def change_calc(divisor, change):
+    quantity_calc = int(change / divisor)
+    if divisor == 0.25:
+        change_type = "Quarter"
+    elif divisor == 0.10:
+        change_type = "Dime"
+    elif divisor == 0.05:
+        change_type = "Nickel"
+    elif divisor == 0.01:
+        change_type = "Penny"
+    else:
+        print("Invalid change type")
+
+    new_quantity = change - (quantity_calc * divisor)
+    new_total = round(new_quantity, 2)
+    print(change_type + " quantity: " + str(quantity_calc))
+    return new_total
+
+
+quarter = 0.25
+dime = 0.10
+nickel = 0.05
+penny = 0.01
+
+initialChange = input("Please input the change amount: ")
+if float(initialChange) > 0:
+    changeVariable = float(initialChange)
+    quarter_calc = change_calc(0.25, changeVariable)
+    dime_calc = change_calc(0.10, quarter_calc)
+    nickel_calc = change_calc(0.05, dime_calc)
+    penny_calc = change_calc(0.01, nickel_calc)
+else:
+    print("Please enter a valid total")
+
+
+
+
+
+
